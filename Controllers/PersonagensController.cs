@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using System.Net.HttpHeadres;
+using System.Net.Http.Headers;
 using System.Net.Http;
 using System.Collections.Generic;
 using RpgMvc.Models;
@@ -28,10 +28,10 @@ namespace RpgMvc.Controllers
                 HttpResponseMessage response = await httpClient.GetAsync(uriBase + uriComplementar); //Guarda a resposta da Requisição
                 string serialized = await response.Content.ReadAsStringAsync();
 
-                if (response.StatusCode == System.Net.HttpStatusCode.Ok)
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     List<PersonagemViewModel> listaPersonagens = await Task.Run(() =>
-                    JsonConvert.DeserializeObjetct<List<PersonagemViewModel>>(serialized));
+                    JsonConvert.DeserializeObject<List<PersonagemViewModel>>(serialized));
 
                     return View(listaPersonagens);
 
@@ -63,10 +63,10 @@ namespace RpgMvc.Controllers
 
                 var content = new StringContent(JsonConvert.SerializeObject(p));
                 content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                HttpRespnseMessage responde = await httpClient.PostAsync(uriBase, content);
+                HttpResponseMessage response = await httpClient.PostAsync(uriBase, content);
                 string serialized = await response.Content.ReadAsStringAsync();
 
-                if (response.StatusCode == System.Net.HttpStatusCode.Ok)
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     TempData["Mensagem"] = string.Format("Personagem {0}, Id {1} salvo com sucesso!", p.Nome, serialized);
                     return RedirectToAction("Index");
@@ -97,7 +97,8 @@ namespace RpgMvc.Controllers
             HttpClient httpClient = new HttpClient();
             string token = HttpContext.Session.GetString("SessionTokenUsuario");
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            HttpResposeMessage responde = await response.Content.ReadAsStringAsync();
+            HttpResponseMessage response = await httpClient.GetAsync(uriBase + id.ToString());
+            string serialized = await response.Content.ReadAsStringAsync();
 
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
