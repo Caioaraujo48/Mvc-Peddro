@@ -1,0 +1,30 @@
+@model RpgMvc.Models.DisputasViewModel
+@{ViewBag.Title = "Index";}
+
+@if (@TempData["Mensagem"] != null)
+{
+    <div class = "alert alert-sucess" role="alert">
+        @TempData["Mensagem"]   
+    </div>
+}
+@if (@TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["MensagemErro"]
+    </div>
+}
+<h2>Ataque com Arma</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="forma-group">
+        @Html.DisplayName("Atacante")
+        <div class="col-md-6">
+            @Html.DropDownList(model => model.AtacanteId, new SelectList(@ViewBag.ListaAtacantes, "Id", "Nome"), "---Selecione---", new { @class = "form-control"})
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.DisplayName
+    </div>
+}
+
