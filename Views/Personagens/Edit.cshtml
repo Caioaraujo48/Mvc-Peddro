@@ -9,9 +9,9 @@
     <div class="form-horizontal">
         <hr />
         <div class="form-group">
-            @Html.LabelFor(Model => Model.Id, htmlAttributes: new { @class = "control-label col-md-2 "})
+  @Html.LabelFor(Model => Model.Id, htmlAttributes: new { @class = "control-label col-md-2 "})
             <div class="col-md-6">
-                @Html.DropDownListFor(model => model.Classe, Html.GetEnumSelectList(typeof(RpgMvc.Models.Enuns.ClasseEnum)),
+@Html.DropDownListFor(model => model.Classe, Html.GetEnumSelectList(typeof(RpgMvc.Models.Enuns.ClasseEnum)),
             "---Selecione---", new { @class = "form-control" })
             </div>
         </div>

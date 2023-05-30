@@ -1,9 +1,8 @@
 <!--Namespace da classe de Modelo para esta view-->
 @model IEnumerable<RpgMvc.Models.PersonagemViewModel>
 <!--Inclua os TempData para Sucesso e Erro aqui, conforme exemplo na view de Autenticação-->
-@{
-    ViewBag.Title = "Personagens"; 
-}
+@{ViewBag.Title = "Personagens"; }
+
 <!--Título da página para o navegador-->
 <h2>Relação de Personagens</h2>
 <!--Título da página-->
@@ -36,7 +35,7 @@
             <td>@Html.DisplayFor(modelItem => item.Derrotas)</td>
             <td>
                 <!--Coluna para Links/botões-->
-            @Html.ActionLink("Editar", "Edit", new { id = item.Id } ) |
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id } ) |
                 @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) |
                 @Html.ActionLink("Deletar", "Delete", new { id = item.Id }
                     , new { onclick = "return confirm('Deseja relamente deletar este pesonagem ?');"})
@@ -44,4 +43,14 @@
         </tr>
     }
 </table>
-@Html.ActionLink("Clique aqui para um embate com armas!!!", "Index", "Disputas", null, new { @class = "btn btn-warning"})
+@Html.ActionLink("Clique aqui para um embate com armas!!!", "Index", "Disputas",
+     null, new { @class = "btn btn-warning" })
+
+@Html.ActionLink("Clique aqui para um embate com habilidades!!!", "IndexHabilidades", "Disputas",
+     null, new { @class = "btn btn-dark" })
+
+@Html.ActionLink("Clique aqui para um embate em grupo!!!", "DisputaGeral", "Disputas",
+     null, new { @class = "btn btn-danger" })
+
+@Html.ActionLink("Zerar ranking e restaurar pontos de vida", "ZerarRankingRestaurarVidas", "Personagens",
+     null, new { @class = "btn btn-secondary", onClick = "return confirm('Deseja realmente realizar esta ação ?');" })

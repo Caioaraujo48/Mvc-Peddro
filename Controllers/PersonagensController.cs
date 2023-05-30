@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Net.Http.Headers;
 using System.Net.Http;
@@ -193,5 +194,82 @@ namespace RpgMvc.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+        [HttpGet]
+        public async Task<ActionResult> DisputaGeralAsync ()
+        {
+            try
+            {
+                HttpClient httpClient = new HttpClient();
+
+                string token = HttpContext.Session.GetString("SessionTokenUsuario");
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                string uriBuscaPersonagens = "http://ddvieira.somee.com/RpgApi/Personagens/GetAll";
+                HttpResponseMessage response = await httpClient.GetAsync(uriBuscaPersonagens);
+
+                string serialized = await response.Content.ReadAsStringAsync();
+
+                List<PersonagemViewModel> listaPersonagens = await Task.Run(() =>
+                    JsonConvert.DeserializeObject<List<PersonagemViewModel>>(serialized));
+
+                string uriDisputa = "http://ddvieira.somee.com/RpgApi/Disputas/DisputaEmGrupo";
+                DisputasViewModel disputa = new DisputasViewModel();
+                disputa.ListaIdPersonagens = new List<int>();
+                disputa.ListaIdPersonagens.AddRange(listaPersonagens.Select(p => p.Id));
+
+                var content = new StringContent(JsonConvert.SerializeObject(disputa));
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                response = await httpClient.PostAsync(uriDisputa, content);
+
+                serialized = await response.Content.ReadAsStringAsync();
+
+                if(response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    disputa = await Task.Run(() => JsonConvert.DeserializeObject<DisputasViewModel>(serialized));
+                    TempData["Mensagem"] = string.Join("<br/>", disputa.Resultados);
+
+                }
+                else    
+                    throw new System.Exception(serialized);
+
+                
+                return RedirectToAction("Index", "Personagens");
+            }
+            catch (System.Exception ex)
+            {
+                TempData["MensagemErro"] = ex.Message;
+                return RedirectToAction("Index","Personagens");
+                
+            }
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> ZerarRankingRestaurarVidasAsync()
+        {
+            try
+            {
+                HttpClient httpClient = new HttpClient();
+                string token = HttpContext.Session.GetString("SessionTokenUsuario");
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                string uriComplementar = "ZerarRankingRestaurarVidas";
+                HttpResponseMessage response = await httpClient.PutAsync(uriBase + uriComplementar, null);
+                string serialized = await response.Content.ReadAsStringAsync();
+                
+                if(response.StatusCode == System.Net.HttpStatusCode.OK)
+                    TempData["Mensagem"] = "Ranking zerados e vidas do personagens restaurados com sucesso.";
+
+                else    
+                    throw new System.Exception(serialized);    
+
+            }
+            catch (System.Exception ex)
+            {
+                { TempData["MensagemErro"] = ex.Message; }
+                return RedirectToAction("Index");
+            }
+        }
+
+
     }
 }

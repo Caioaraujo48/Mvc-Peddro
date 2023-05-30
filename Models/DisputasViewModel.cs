@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System;
+
 namespace RpgMvc.Models
 {
     public class DisputasViewModel
