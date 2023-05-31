@@ -9,73 +9,81 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RpgMvc
 build_property.RootNamespace = RpgMvc
-build_property.ProjectDir = D:\CaioPeddro\DS-l\RpgMvc-1\
+build_property.ProjectDir = d:\CaioPeddro\DS-l\RpgMvc\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\CaioPeddro\DS-l\RpgMvc-1
+build_property.MSBuildProjectDirectory = d:\CaioPeddro\DS-l\RpgMvc
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/CaioPeddro/DS-l/RpgMvc-1/Views/Disputas/Index.cshtml]
+[d:/CaioPeddro/DS-l/RpgMvc/Views/Disputas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcHV0YXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CaioPeddro/DS-l/RpgMvc-1/Views/Disputas/IndexHabilidades.cshtml]
+[d:/CaioPeddro/DS-l/RpgMvc/Views/Disputas/IndexDisputas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcHV0YXNcSW5kZXhEaXNwdXRhcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/CaioPeddro/DS-l/RpgMvc/Views/Disputas/IndexHabilidades.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcHV0YXNcSW5kZXhIYWJpbGlkYWRlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CaioPeddro/DS-l/RpgMvc-1/Views/Home/Index.cshtml]
+[d:/CaioPeddro/DS-l/RpgMvc/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CaioPeddro/DS-l/RpgMvc-1/Views/Home/Privacy.cshtml]
+[d:/CaioPeddro/DS-l/RpgMvc/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CaioPeddro/DS-l/RpgMvc-1/Views/Personagens/Create.cshtml]
+[d:/CaioPeddro/DS-l/RpgMvc/Views/PersonagemHabilidades/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYWdlbUhhYmlsaWRhZGVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/CaioPeddro/DS-l/RpgMvc/Views/Personagens/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYWdlbnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CaioPeddro/DS-l/RpgMvc-1/Views/Personagens/Details.cshtml]
+[d:/CaioPeddro/DS-l/RpgMvc/Views/Personagens/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYWdlbnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CaioPeddro/DS-l/RpgMvc-1/Views/Personagens/Edit.cshtml]
+[d:/CaioPeddro/DS-l/RpgMvc/Views/Personagens/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYWdlbnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CaioPeddro/DS-l/RpgMvc-1/Views/Personagens/Index.cshtml]
+[d:/CaioPeddro/DS-l/RpgMvc/Views/Personagens/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYWdlbnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CaioPeddro/DS-l/RpgMvc-1/Views/Shared/Error.cshtml]
+[d:/CaioPeddro/DS-l/RpgMvc/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CaioPeddro/DS-l/RpgMvc-1/Views/Shared/_LoginPartialRpg.cshtml]
+[d:/CaioPeddro/DS-l/RpgMvc/Views/Shared/_LoginPartialRpg.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWxScGcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CaioPeddro/DS-l/RpgMvc-1/Views/Shared/_ValidationScriptsPartial.cshtml]
+[d:/CaioPeddro/DS-l/RpgMvc/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CaioPeddro/DS-l/RpgMvc-1/Views/Usuarios/AutenticarUsuario.cshtml]
+[d:/CaioPeddro/DS-l/RpgMvc/Views/Usuarios/AutenticarUsuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcQXV0ZW50aWNhclVzdWFyaW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CaioPeddro/DS-l/RpgMvc-1/Views/Usuarios/CadastrarUsuario.cshtml]
+[d:/CaioPeddro/DS-l/RpgMvc/Views/Usuarios/CadastrarUsuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcQ2FkYXN0cmFyVXN1YXJpby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CaioPeddro/DS-l/RpgMvc-1/Views/_ViewImports.cshtml]
+[d:/CaioPeddro/DS-l/RpgMvc/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CaioPeddro/DS-l/RpgMvc-1/Views/_ViewStart.cshtml]
+[d:/CaioPeddro/DS-l/RpgMvc/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CaioPeddro/DS-l/RpgMvc-1/Views/Shared/_Layout.cshtml]
+[d:/CaioPeddro/DS-l/RpgMvc/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-z01m3r0ocj

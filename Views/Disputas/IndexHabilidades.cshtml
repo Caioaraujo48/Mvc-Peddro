@@ -34,8 +34,8 @@
     <div class="form-group">
         @Html.DisplayName("Oponente")
         <div class="col-md-6">
-            @Html.DropDownListFor(model => model.OponenteId, new SelectList(@ViewBag.ListaOponentes, "Id", "Nome"),
-             "---Selecione---", new { @class = "form-control"})
+            @Html.DropDownListFor(model => model.OponenteId, new SelectList(@ViewBag.ListaHabilidades, "Id", "Nome"),
+                    "---Selecione---", new { @class = "form-control"})
         </div>
     </div>
     <br/>

@@ -49,8 +49,9 @@
 @Html.ActionLink("Clique aqui para um embate com habilidades!!!", "IndexHabilidades", "Disputas",
      null, new { @class = "btn btn-dark" })
 
-@Html.ActionLink("Clique aqui para um embate em grupo!!!", "DisputaGeral", "Disputas",
+@Html.ActionLink("Clique aqui para um embate em grupo!!!", "DisputaGeral", "Disputas", 
      null, new { @class = "btn btn-danger" })
 
 @Html.ActionLink("Zerar ranking e restaurar pontos de vida", "ZerarRankingRestaurarVidas", "Personagens",
-     null, new { @class = "btn btn-secondary", onClick = "return confirm('Deseja realmente realizar esta ação ?');" })
+     null, new { @class = "btn btn-secondary", onClick = "return confirm('Deseja realmente realizar esta ação ?');"}) |
+@Html.ActionLink("Listar Habilidades", "Index", "PersonagemHabilidades", new {id = item.Id})

@@ -3581,11 +3581,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CaioPeddro\\DS-l\\RpgMvc-1\\RpgMvc.csproj",
+      "projectUniqueName": "D:\\CaioPeddro\\DS-l\\RpgMvc\\RpgMvc.csproj",
       "projectName": "RpgMvc",
-      "projectPath": "D:\\CaioPeddro\\DS-l\\RpgMvc-1\\RpgMvc.csproj",
+      "projectPath": "D:\\CaioPeddro\\DS-l\\RpgMvc\\RpgMvc.csproj",
       "packagesPath": "C:\\Users\\EtecHAS\\.nuget\\packages\\",
-      "outputPath": "D:\\CaioPeddro\\DS-l\\RpgMvc-1\\obj\\",
+      "outputPath": "D:\\CaioPeddro\\DS-l\\RpgMvc\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
