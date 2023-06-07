@@ -195,7 +195,7 @@ namespace RpgMvc.Controllers
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     disputa = await Task.Run(() => JsonConvert.DeserializeObject<DisputasViewModel>(serialized));
-                    TempData["Mensagem"] = string.Join("<br/>", disputa.Resultados);
+                    TempData["Mensagem"] = string.Join("<br>", disputa.Resultados);
                 }
                 else
                     throw new System.Exception(serialized);

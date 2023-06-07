@@ -1,0 +1,50 @@
+@model IEnumerable<RpgMvc.Models.ArmaViewModel>
+
+@{ ViewBag.Title = "Index"; }
+@if (@TempData["Mensagem"] != null) 
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Mensagem"]
+    </div>
+}
+@if (@TempData["MensagemErro"] != null) 
+{
+    <div class="alert alert-danger" role="alert">
+    @TempData["MensagemErro"]</div>
+}
+
+@{ViewBag.Title = "Armas";}
+
+<h2>Relação de Armas</h2>
+<!--Título da página-->
+<p>
+    <!--Links apontando para views na mesma pasta-->
+    @Html.ActionLink("Criar Nova Arma", "Create")
+</p>
+<table class="table">
+    <tr>
+        <!--Títulos das colunas da tabela-->
+        <th>@Html.DisplayNameFor(model => model.Id)</th>
+        <th>@Html.DisplayNameFor(model => model.Nome)</th>
+        <th>@Html.DisplayNameFor(model => model.Dano)</th>
+    </tr>
+    <!--Looping para escrever os dados na tabela-->
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelitem => item.Id)</td>
+            <td>@Html.DisplayFor(modelitem => item.Nome)</td>
+            <td>@Html.DisplayFor(modelitem => item.Dano)</td>
+            <td>
+                <!--Coluna para Links/botões-->
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id } ) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Deletar", "Delete", new { id = item.Id }
+                    , new { onclick = "return confirm('Deseja relamente deletar esta arma ?');"}) |
+
+                @Html.ActionLink("Criar Nova Arma", "Create", "Arma", new {id = item.Id, nome = item.Nome }
+                    , new { onclick = "return confirm('Deseja realmente restaurar pontos de vida?');"}) |
+            </td>
+        </tr>
+    }
+</table>

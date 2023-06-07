@@ -1,6 +1,15 @@
 <!--Namespace da classe de Modelo para esta view-->
 @model IEnumerable<RpgMvc.Models.PersonagemViewModel>
-<!--Inclua os TempData para Sucesso e Erro aqui, conforme exemplo na view de Autenticação-->
+@{ ViewBag.Title = "Index"; }
+@if (@TempData["Mensagem"] != null) {
+<div class="alert alert-success" role="alert">
+@TempData["Mensagem"]</div>
+}
+@if (@TempData["MensagemErro"] != null) {
+<div class="alert alert-danger" role="alert">
+@TempData["MensagemErro"]</div>
+}
+
 @{ViewBag.Title = "Personagens"; }
 
 <!--Título da página para o navegador-->
@@ -38,20 +47,27 @@
                 @Html.ActionLink("Editar", "Edit", new { id = item.Id } ) |
                 @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) |
                 @Html.ActionLink("Deletar", "Delete", new { id = item.Id }
-                    , new { onclick = "return confirm('Deseja relamente deletar este pesonagem ?');"})
+                    , new { onclick = "return confirm('Deseja relamente deletar este pesonagem ?');"}) |
+                @Html.ActionLink("Listar Habilidades", "Index", "PersonagemHabilidades", new {id = item.Id}) |
+                @Html.ActionLink("Atribuir Habilidade", "Create", "PersonagemHabilidades", new {id = item.Id, nome = item.Nome }) |
+                @Html.ActionLink("Restaurar Pontos Vida", "RestaurarPontosVida", new { id = item.Id}
+                    , new { onclick = "return confirm('Deseja realmente restaurar pontos de vida?');"}) |
+                @Html.ActionLink("Zerar Ranking", "ZerarRanking", new { id = item.Id }
+                    , new {onclick = "return confirm('Deseja realmente zerar ranking?');"})
             </td>
         </tr>
     }
 </table>
 @Html.ActionLink("Clique aqui para um embate com armas!!!", "Index", "Disputas",
-     null, new { @class = "btn btn-warning" })
+    null, new { @class = "btn btn-warning" })
 
 @Html.ActionLink("Clique aqui para um embate com habilidades!!!", "IndexHabilidades", "Disputas",
-     null, new { @class = "btn btn-dark" })
+    null, new { @class = "btn btn-dark" })
 
 @Html.ActionLink("Clique aqui para um embate em grupo!!!", "DisputaGeral", "Disputas", 
-     null, new { @class = "btn btn-danger" })
+    null, new { @class = "btn btn-danger" })
 
 @Html.ActionLink("Zerar ranking e restaurar pontos de vida", "ZerarRankingRestaurarVidas", "Personagens",
-     null, new { @class = "btn btn-secondary", onClick = "return confirm('Deseja realmente realizar esta ação ?');"}) |
-@Html.ActionLink("Listar Habilidades", "Index", "PersonagemHabilidades", new {id = item.Id})
+    null, new { @class = "btn btn-secondary", onClick = "return confirm('Deseja realmente realizar esta ação ?');"}) |
+
+
