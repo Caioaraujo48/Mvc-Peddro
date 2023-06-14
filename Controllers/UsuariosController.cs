@@ -11,7 +11,7 @@ using RpgMvc.Models;
 
 namespace RpgMvc.Controllers
 {
-    
+
     public class UsuariosController : Controller
     {
         public string uriBase = "http://ddvieira.somee.com/RpgApi/Usuarios/";
@@ -73,9 +73,10 @@ namespace RpgMvc.Controllers
                 string serialized = await response.Content.ReadAsStringAsync();
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {   
-                    UsuarioViewModel uLogado = JsonConvert.DeserializeObject<UsuarioViewModel>(serialized);                    
+                {
+                    UsuarioViewModel uLogado = JsonConvert.DeserializeObject<UsuarioViewModel>(serialized);
                     HttpContext.Session.SetString("SessionTokenUsuario", uLogado.Token);
+                    HttpContext.Session.SetString("SessionUsername", u.Username);
                     TempData["Mensagem"] = string.Format("Bem-vindo {0}!!!", uLogado.Username);
                     return RedirectToAction("Index", "Personagens");
                 }
@@ -90,12 +91,35 @@ namespace RpgMvc.Controllers
                 return IndexLogin();
             }
         }
-
-
-
-
-
-
-
+        [HttpGet]
+        public async Task<ActionResult> IndexInformacoesAsync()
+        {
+            try
+            {
+                HttpClient httpClient = new HttpClient();
+                //Novo: Recuperação informação da sessão
+                string login = HttpContext.Session.GetString("SessionUsername");
+                string uriComplementar =
+                $"GetByLogin/{login}";
+                HttpResponseMessage response = await httpClient.GetAsync(uriBase +
+                uriComplementar);
+                string serialized = await response.Content.ReadAsStringAsync();
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    UsuarioViewModel u = await Task.Run(() =>
+                    JsonConvert.DeserializeObject<UsuarioViewModel>(serialized));
+                    return View(u);
+                }
+                else
+                {
+                    throw new System.Exception(serialized);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                TempData["MensagemErro"] = ex.Message;
+                return RedirectToAction("Index");
+            }
+        }
     }
 }

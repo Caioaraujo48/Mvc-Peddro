@@ -14,7 +14,7 @@ namespace RpgMvc.Models
         public string Perfil{ get; set; }
         public string Email{ get; set; }
         public string Token{ get; set; } = string.Empty;
-
+        public DateTime? DataAcesso { get; set; }
 
     }
 }
